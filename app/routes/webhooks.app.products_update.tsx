@@ -1,5 +1,5 @@
 import { authenticate } from "../shopify.server";
-import { prisma } from "../db.server";
+import  prisma  from "../db.server";
 import type { ActionFunction } from "@remix-run/node";
 
 interface ProductWebhookPayload {
