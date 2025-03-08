@@ -1,0 +1,100 @@
+<div class="filter-container">
+  <!-- Input pentru căutare -->
+  <input type="text" class="filter-search" placeholder="Caută...">
+
+  <div class="radio-group collapsible">
+    <label class="radio-label">
+      <input type="radio" name="consum_de_aer-radio" value="" checked>
+      <span>Toate valorile</span>
+    </label>
+
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="2"><span>2</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="3"><span>3</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="4"><span>4</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="5"><span>5</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="6"><span>6</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="7"><span>7</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="8"><span>8</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="9"><span>9</span></label>
+    <label class="radio-label"><input type="radio" name="consum_de_aer-radio" value="test"><span>Test</span></label>
+  </div>
+
+</div>
+
+  
+
+  <style>
+  /* Stil pentru input-ul de căutare */
+.filter-search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Stil pentru scrollbar și efecte */
+.radio-group {
+  max-height: 200px; /* Înălțime inițială */
+  overflow-y: hidden; /* Ascunde scroll-ul inițial */
+  transition: max-height 0.3s ease-in-out;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+/* Expandare când apăsăm "Show More" */
+.radio-group.expanded {
+  max-height: 500px; /* Crește dimensiunea */
+  overflow-y: auto;
+}
+
+/* Scrollbar modern */
+.radio-group::-webkit-scrollbar {
+  width: 6px;
+}
+
+.radio-group::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 3px;
+}
+
+.radio-group::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Ascunde opțiunile care nu se potrivesc cu căutarea */
+.radio-label.hidden {
+  display: none;
+}
+
+
+  </style>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const radioGroup = document.querySelector(".radio-group");
+  const searchInput = document.querySelector(".filter-search");
+  const radioLabels = document.querySelectorAll(".radio-label");
+
+
+
+  // Funcție de filtrare în timp real
+  searchInput.addEventListener("input", function () {
+    const searchValue = searchInput.value.toLowerCase();
+
+    radioLabels.forEach(label => {
+      const text = label.textContent.toLowerCase();
+      if (text.includes(searchValue)) {
+        label.classList.remove("hidden"); // Afișează dacă se potrivește
+      } else {
+        label.classList.add("hidden"); // Ascunde dacă nu se potrivește
+      }
+    });
+  });
+});
+
+
+
+  </script>

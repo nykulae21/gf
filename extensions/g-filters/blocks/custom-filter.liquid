@@ -1,0 +1,26 @@
+{% schema %}
+{
+  "name": "Filtrare Personalizată",
+  "target": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu Filtrare",
+      "default": "Filtrare Produse"
+    }
+  ]
+}
+{% endschema %}
+
+{{ 'my-custom-filter-app.css' | asset_url | stylesheet_tag }}
+{{ 'my-custom-filter-app.js' | asset_url | script_tag }}
+
+<div id="custom-filter-app" data-collection-id="{{ collection.id }}">
+  <h2>{{ settings.heading }}</h2>
+  {% render 'custom-filter-snippet' %}
+</div>
+
+<!-- Container unde vor fi afișate produsele -->
+<div id="custom-product-grid" class="product-grid">
+</div>

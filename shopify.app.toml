@@ -1,0 +1,53 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "5e822f4f16fa45fc327706a36ae43b9f"
+application_url = "https://pics-considered-interpretation-owned.trycloudflare.com"
+embedded = true
+name = "gf"
+handle = "gf-2"
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[app_proxy]
+subpath = "filtered-products"
+prefix = "apps"
+url = "https://pics-considered-interpretation-owned.trycloudflare.com"
+
+[webhooks]
+api_version = "2025-01"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "products/update" ]
+  uri = "/api/webhooks/products-update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "collections/create" ]
+  uri = "/api/webhooks/collections-create"
+
+  [[webhooks.subscriptions]]
+  topics = [ "collections/update" ]
+  uri = "/api/webhooks/collections-update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products, read_products, write_themes, read_themes"
+
+[auth]
+redirect_urls = [
+  "https://pics-considered-interpretation-owned.trycloudflare.com/auth/callback",
+  "https://pics-considered-interpretation-owned.trycloudflare.com/auth/shopify/callback",
+  "https://pics-considered-interpretation-owned.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false

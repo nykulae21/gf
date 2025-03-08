@@ -1,0 +1,124 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+        
+model Session {
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean?  @default(false)
+  emailVerified Boolean?  @default(false)
+}
+
+
+model ProductCollection {
+  productId    String
+  collectionId String
+  shop         String
+  collection   Collection @relation(fields: [collectionId, shop], references: [id, shop], onDelete: Cascade)
+  product      Product    @relation(fields: [productId, shop], references: [id, shop], onDelete: Cascade)
+
+  @@id([productId, collectionId, shop])
+}
+
+model Product {
+  id               String              @id
+  title            String
+  handle           String
+  vendor           String
+  price            Float
+  tags             String?
+  shop             String
+  customMetafields Json
+  variants         Json
+  collections      ProductCollection[]
+
+  @@unique([id, shop])
+}
+
+model Collection {
+  id       String              @id
+  title    String
+  handle   String
+  shop     String
+  products ProductCollection[]
+
+  @@unique([id, shop])
+}
+
+
+model Metafield {
+  id        Int    @id @default(autoincrement())
+  namespace String
+  key       String
+  shop      String
+
+  @@unique([namespace, key, shop])
+}
+
+model UserFilter {
+  id     Int    @id @default(autoincrement())
+  filter String
+  shop   String
+}
+
+
+model Theme {
+  id           String     @id
+  name         String
+  createdAt    DateTime   @map("created_at")
+  updatedAt    DateTime   @map("updated_at")
+  role         String
+  themeStoreId Int?
+  previewable  Boolean
+  processing   Boolean
+  adminApiId   String
+  shop         String
+  templates    Template[]
+
+  @@unique([id, shop])
+}
+
+model Template {
+  id      String @id @default(cuid())
+  name    String
+  content String
+  themeId String
+  shop    String
+  theme   Theme  @relation(fields: [themeId, shop], references: [id, shop], onDelete: Cascade)
+
+  @@unique([themeId, name, shop])
+}
+
+model FilterConfig {
+  shop                    String   @id
+  visibleMetafields       Json     @default("[]")
+  includeInCollections    Json     @default("[]")
+  excludeFromCollections  Json     @default("[]")
+  filterSettings         Json     @default("{}")
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  @@unique([shop])
+}
+

@@ -1,0 +1,489 @@
+.custom-collection-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Coloana pentru filtre (stânga) */
+  .custom-collection-filters {
+    flex: 1;
+    max-width: 300px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+  }
+  
+  /* Coloana pentru produse (dreapta) */
+  .custom-collection-products {
+    flex: 3;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+  }
+  
+.custom-filter-app {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.custom-filter-ui {
+  width: 250px;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.filter-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.filter-section:last-child {
+  border-bottom: none;
+}
+
+.filter-section h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-section input[type="text"],
+.filter-section input[type="number"],
+.filter-section select,
+.metafield-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.price-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-range input {
+  width: calc(50% - 10px);
+}
+
+.price-range span {
+  color: #666;
+}
+
+.tags-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tags-container label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.metafield-filter {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #eee;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #202223;
+}
+
+.checkbox-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  position: relative !important;
+  padding: 8px !important;
+  background-color: #fff !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+}
+
+/* Stiluri specifice pentru modul scrollbar */
+.checkbox-group.scrollable {
+  max-height: 320px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-right: 12px !important;
+}
+
+/* Stilizare scrollbar pentru WebKit (Chrome, Safari, Edge) */
+.checkbox-group.scrollable::-webkit-scrollbar {
+  width: 8px !important;
+  display: block !important;
+}
+
+.checkbox-group.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 4px !important;
+  margin: 4px !important;
+}
+
+.checkbox-group.scrollable::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 4px !important;
+  border: 2px solid #f1f1f1 !important;
+}
+
+.checkbox-group.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
+/* Stilizare scrollbar pentru Firefox */
+.checkbox-group.scrollable {
+  scrollbar-width: thin !important;
+  scrollbar-color: #888 #f1f1f1 !important;
+}
+
+.checkbox-label {
+  display: flex !important;
+  align-items: center !important;
+  padding: 4px 8px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s !important;
+  user-select: none !important;
+  font-size: 14px !important;
+  color: #202223 !important;
+  border-radius: 4px !important;
+}
+
+.checkbox-label:hover {
+  background-color: rgba(241, 242, 243, 0.8) !important;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin: 0 8px 0 0 !important;
+  width: 16px !important;
+  height: 16px !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+}
+
+.checkbox-label span {
+  flex: 1 !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.metafield-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.metafield-select:focus {
+  outline: none;
+  border-color: #5c6ac4;
+  box-shadow: 0 0 0 1px #5c6ac4;
+}
+
+#apply-filter {
+  width: 100%;
+  padding: 12px;
+  background-color: #008060;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+#apply-filter:hover {
+  background-color: #006e52;
+}
+
+/* Stilizare pentru grid-ul de produse */
+#custom-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  padding: 16px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  background: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.product-card p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Container pentru radio group */
+.radio-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  position: relative !important;
+  padding: 8px !important;
+  background-color: #fff !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+}
+
+/* Stiluri specifice pentru modul scrollbar */
+.radio-group.scrollable {
+  max-height: 320px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-right: 12px !important;
+}
+
+/* Stilizare scrollbar pentru WebKit (Chrome, Safari, Edge) */
+.radio-group.scrollable::-webkit-scrollbar {
+  width: 8px !important;
+  display: block !important;
+}
+
+.radio-group.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 4px !important;
+  margin: 4px !important;
+}
+
+.radio-group.scrollable::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 4px !important;
+  border: 2px solid #f1f1f1 !important;
+}
+
+.radio-group.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
+/* Stilizare scrollbar pentru Firefox */
+.radio-group.scrollable {
+  scrollbar-width: thin !important;
+  scrollbar-color: #888 #f1f1f1 !important;
+}
+
+/* Stiluri pentru radio labels */
+.radio-label {
+  display: flex !important;
+  align-items: center !important;
+  padding: 4px 8px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s !important;
+  user-select: none !important;
+  font-size: 14px !important;
+  color: #202223 !important;
+  border-radius: 4px !important;
+}
+
+.radio-label:hover {
+  background-color: rgba(241, 242, 243, 0.8) !important;
+}
+
+.radio-label input[type="radio"] {
+  margin: 0 8px 0 0 !important;
+  width: 16px !important;
+  height: 16px !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+}
+
+.radio-label span {
+  flex: 1 !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Stilizare pentru Range Filter */
+.range-group {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.range-sliders {
+  position: relative;
+  width: 100%;
+  height: 40px;
+}
+
+.range-slider {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  -webkit-appearance: none;
+  pointer-events: none;
+}
+
+.range-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+}
+
+.range-slider::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: auto;
+  position: relative;
+  z-index: 100;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #008060;
+  margin-top: -7px;
+  cursor: pointer;
+}
+
+.range-slider::-moz-range-thumb {
+  pointer-events: auto;
+  position: relative;
+  z-index: 100;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #008060;
+  border: none;
+  margin-top: -7px;
+  cursor: pointer;
+}
+
+.range-slider.min-slider {
+  z-index: 1;
+}
+
+.range-slider.max-slider {
+  z-index: 2;
+}
+
+.range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.range-inputs input[type="number"] {
+  width: 80px;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.range-inputs span {
+  color: #666;
+}
+
+/* Stiluri pentru Show More */
+.checkbox-label.hidden,
+.radio-label.hidden {
+  display: none !important;
+}
+
+.show-more-button {
+  width: 100% !important;
+  padding: 8px !important;
+  margin-top: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid #e5e5e5 !important;
+  color: #2c6ecb !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: color 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.show-more-button:hover {
+  color: #1f5298 !important;
+  background-color: rgba(44, 110, 203, 0.05) !important;
+}
+
+.show-more-button::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin-right: 6px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232c6ecb'%3E%3Cpath d='M12 15.375l-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z'/%3E%3C/svg%3E") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  transition: transform 0.2s ease !important;
+}
+
+.show-more-button.expanded::before {
+  transform: rotate(180deg) !important;
+}
+
+/* Ajustăm spațierea pentru grupurile cu Show More */
+.checkbox-group,
+.radio-group {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.show-more-button {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+  border: 1px solid #ddd !important;
+  border-top: none !important;
+  background-color: #fff !important;
+}
+  
